@@ -4,319 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pro Envanter Paneli</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary: #4f46e5;
-            --primary-hover: #4338ca;
-            --success: #10b981;
-            --danger: #ef4444;
-            --warning: #f59e0b;
-            --dark: #111827;
-            --gray-light: #f3f4f6;
-            --gray-border: #e5e7eb;
-            --text-muted: #6b7280;
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--gray-light);
-            color: var(--dark);
-            display: flex;
-            min-height: 100vh;
-        }
-
-        aside {
-            width: 260px;
-            background-color: #1f2937;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            height: 100vh;
-        }
-
-        .logo-area {
-            padding: 24px;
-            font-size: 20px;
-            font-weight: 700;
-            border-bottom: 1px solid #374151;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-area i {
-            color: var(--primary);
-            font-size: 24px;
-        }
-
-        .menu {
-            padding: 20px 0;
-            list-style: none;
-        }
-
-        .menu li a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 15px 24px;
-            color: #d1d5db;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.2s;
-        }
-
-        .menu li a:hover, .menu li a.active {
-            background-color: #374151;
-            color: white;
-            border-right: 4px solid var(--primary);
-        }
-
-        .main-content {
-            margin-left: 260px;
-            flex: 1;
-            padding: 30px 40px;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        header h1 {
-            font-size: 24px;
-            font-weight: 600;
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-
-        .user-profile img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-bottom: 24px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: var(--card-shadow);
-            border: 1px solid var(--gray-border);
-        }
-
-        .full-width {
-            grid-column: 1 / -1;
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--gray-border);
-            color: var(--dark);
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .card-header i {
-            color: var(--primary);
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-        }
-
-        label {
-            display: block;
-            font-size: 14px;
-            font-weight: 500;
-            color: #374151;
-            margin-bottom: 6px;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        select {
-            width: 100%;
-            padding: 10px 14px;
-            border: 1px solid var(--gray-border);
-            border-radius: 8px;
-            font-size: 14px;
-            transition: all 0.2s;
-            background-color: #f9fafb;
-        }
-
-        input:focus, select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-            background-color: white;
-        }
-
-        .radio-group {
-            display: flex;
-            gap: 20px;
-            padding: 10px 0;
-        }
-
-        .radio-option {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-        }
-
-        .radio-option label {
-            margin: 0;
-            cursor: pointer;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            color: white;
-            margin-top: 10px;
-        }
-
-        .btn-primary { background-color: var(--primary); }
-        .btn-primary:hover { background-color: var(--primary-hover); }
-
-        .btn-success { background-color: var(--success); }
-        .btn-success:hover { background-color: #059669; }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
-
-        th {
-            background-color: var(--gray-light);
-            color: var(--text-muted);
-            font-weight: 600;
-            font-size: 13px;
-            text-transform: uppercase;
-            padding: 12px 16px;
-            letter-spacing: 0.05em;
-        }
-
-        td {
-            padding: 16px;
-            border-bottom: 1px solid var(--gray-border);
-            font-size: 14px;
-            vertical-align: middle;
-        }
-
-        tr:last-child td { border-bottom: none; }
-        tr:hover td { background-color: #f9fafb; }
-
-        .product-name {
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .badge {
-            padding: 6px 12px;
-            border-radius: 9999px;
-            font-size: 12px;
-            font-weight: 600;
-            display: inline-block;
-        }
-
-        .badge-success { background-color: #d1fae5; color: #065f46; }
-        .badge-warning { background-color: #fef3c7; color: #92400e; }
-        .badge-danger { background-color: #fee2e2; color: #991b1b; }
-
-        @media (max-width: 992px) {
-            .dashboard-grid { grid-template-columns: 1fr; }
-            aside { display: none; }
-            .main-content { margin-left: 0; padding: 20px; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <aside>
-        <div class="logo-area">
-            <i class="fa-solid fa-boxes-stacked"></i>
-            ProInventory
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>ProInventory</span>
         </div>
-        <ul class="menu">
-            <li><a href="#" class="active"><i class="fa-solid fa-chart-pie"></i> Kontrol Paneli</a></li>
-            <li><a href="#"><i class="fa-solid fa-box"></i> Ürünler</a></li>
-            <li><a href="#"><i class="fa-solid fa-arrow-right-arrow-left"></i> Stok Hareketleri</a></li>
-            <li><a href="#"><i class="fa-solid fa-users"></i> Tedarikçiler</a></li>
-            <li><a href="#"><i class="fa-solid fa-gear"></i> Ayarlar</a></li>
-        </ul>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-item active"><i class="fa-solid fa-chart-pie"></i> Genel Bakış</a></li>
+                <li><a href="#" class="nav-item"><i class="fa-solid fa-box"></i> Ürün Yönetimi</a></li>
+                <li><a href="#" class="nav-item"><i class="fa-solid fa-truck-fast"></i> Tedarikçiler</a></li>
+                <li><a href="#" class="nav-item"><i class="fa-solid fa-file-invoice"></i> Raporlar</a></li>
+                <li><a href="#" class="nav-item"><i class="fa-solid fa-gear"></i> Sistem Ayarları</a></li>
+            </ul>
+        </nav>
     </aside>
 
-    <main class="main-content">
+    <main class="main-wrapper">
         
-        <header>
-            <div>
-                <h1>Genel Bakış</h1>
-                <p style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">Envanter ve stok hareketlerini buradan yönetebilirsiniz.</p>
+        <header class="topbar">
+            <div class="topbar-title">
+                <h1>Kontrol Paneli</h1>
+                <p>Envanter ve stok hareketlerini gerçek zamanlı yönetin.</p>
             </div>
-            <div class="user-profile">
-                <span>Yönetici</span>
-                <img src="https://ui-avatars.com/api/?name=Admin+User&background=4f46e5&color=fff" alt="Profil">
+            <div class="profile-widget">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=4f46e5&color=fff&rounded=true" alt="Profil">
+                <div class="profile-info">
+                    <span class="name">Yönetici</span>
+                    <span class="role">Sistem Admini</span>
+                </div>
             </div>
         </header>
 
-        <div class="dashboard-grid">
+        <div class="grid-layout">
             
-            <section class="card" id="yeni-urun">
-                <div class="card-header">
+            <section class="panel-card">
+                <div class="panel-header">
                     <i class="fa-solid fa-circle-plus"></i>
                     <h2>Yeni Ürün Tanımla</h2>
                 </div>
                 <form action="#" method="POST">
                     <div class="form-group">
-                        <label for="urun-adi">Ürün Adı</label>
-                        <input type="text" id="urun-adi" placeholder="Örn: 27 inç Oyuncu Monitörü" required>
+                        <label class="form-label" for="urun-adi">Ürün Adı</label>
+                        <input type="text" id="urun-adi" class="form-control" placeholder="Örn: 27 inç Oyuncu Monitörü" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="kategori">Kategori</label>
-                        <select id="kategori">
+                        <label class="form-label" for="kategori">Kategori</label>
+                        <select id="kategori" class="form-control">
                             <option value="">Seçiniz...</option>
                             <option value="elektronik">Elektronik & Teknoloji</option>
                             <option value="ofis">Ofis Malzemeleri</option>
@@ -325,25 +66,25 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="stok">Başlangıç Stok Miktarı</label>
-                        <input type="number" id="stok" min="0" placeholder="0" required>
+                        <label class="form-label" for="stok">Başlangıç Stok Miktarı</label>
+                        <input type="number" id="stok" class="form-control" min="0" placeholder="0" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary">
-                        <i class="fa-solid fa-save"></i> Ürünü Kaydet
+                        <i class="fa-solid fa-floppy-disk"></i> Ürünü Sisteme Kaydet
                     </button>
                 </form>
             </section>
 
-            <section class="card" id="stok-guncelle">
-                <div class="card-header">
-                    <i class="fa-solid fa-boxes-packing"></i>
+            <section class="panel-card">
+                <div class="panel-header">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
                     <h2>Stok Hareketi (Giriş/Çıkış)</h2>
                 </div>
                 <form action="#" method="POST">
                     <div class="form-group">
-                        <label for="hedef-urun">İşlem Yapılacak Ürün</label>
-                        <select id="hedef-urun" required>
+                        <label class="form-label" for="hedef-urun">İşlem Yapılacak Ürün</label>
+                        <select id="hedef-urun" class="form-control" required>
                             <option value="">Ürün seçin...</option>
                             <option value="101">#101 - 27 inç Oyuncu Monitörü</option>
                             <option value="102">#102 - Ergonomik Ofis Koltuğu</option>
@@ -352,22 +93,22 @@
                     </div>
 
                     <div class="form-group">
-                        <label>İşlem Türü</label>
-                        <div class="radio-group">
-                            <div class="radio-option">
-                                <input type="radio" id="giris" name="islem" value="giris" checked>
-                                <label for="giris"><i class="fa-solid fa-arrow-down" style="color: var(--success)"></i> Stok Girişi</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="cikis" name="islem" value="cikis">
-                                <label for="cikis"><i class="fa-solid fa-arrow-up" style="color: var(--danger)"></i> Stok Çıkışı</label>
-                            </div>
+                        <label class="form-label">İşlem Türü</label>
+                        <div class="radio-container">
+                            <label class="radio-item">
+                                <input type="radio" name="islem" value="giris" checked>
+                                <i class="fa-solid fa-arrow-turn-down" style="color: var(--color-success)"></i> Stok Girişi
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="islem" value="cikis">
+                                <i class="fa-solid fa-arrow-turn-up" style="color: var(--color-danger)"></i> Stok Çıkışı
+                            </label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="miktar">Miktar</label>
-                        <input type="number" id="miktar" min="1" placeholder="Adet giriniz" required>
+                        <label class="form-label" for="miktar">Miktar</label>
+                        <input type="number" id="miktar" class="form-control" min="1" placeholder="Adet giriniz" required>
                     </div>
 
                     <button type="submit" class="btn btn-success">
@@ -376,47 +117,59 @@
                 </form>
             </section>
 
-            <section class="card full-width" id="envanter-liste">
-                <div class="card-header">
+            <section class="panel-card grid-full-width">
+                <div class="panel-header">
                     <i class="fa-solid fa-table-list"></i>
-                    <h2>Mevcut Envanter Durumu</h2>
+                    <h2>Gerçek Zamanlı Envanter Durumu</h2>
                 </div>
-                <div style="overflow-x: auto;">
-                    <table>
+                
+                <div class="table-responsive">
+                    <table class="data-table">
                         <thead>
                             <tr>
-                                <th>Ürün Kodu</th>
-                                <th>Ürün Adı</th>
+                                <th>Ürün / Kodu</th>
                                 <th>Kategori</th>
                                 <th>Mevcut Stok</th>
-                                <th>Durum</th>
-                                <th>İşlem</th>
+                                <th>Stok Durumu</th>
+                                <th>Hızlı İşlem</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td style="color: var(--text-muted); font-weight: 500;">PRD-101</td>
-                                <td class="product-name">27 inç Oyuncu Monitörü</td>
+                                <td>
+                                    <div class="product-info">
+                                        <strong>27 inç Oyuncu Monitörü</strong>
+                                        <span>PRD-101</span>
+                                    </div>
+                                </td>
                                 <td>Elektronik</td>
                                 <td><strong>45</strong> Adet</td>
-                                <td><span class="badge badge-success">Yeterli Stok</span></td>
-                                <td><a href="#" style="color: var(--primary);"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                                <td><span class="badge badge-success">Yeterli</span></td>
+                                <td><a href="#" class="action-btn"><i class="fa-solid fa-pen"></i></a></td>
                             </tr>
                             <tr>
-                                <td style="color: var(--text-muted); font-weight: 500;">PRD-102</td>
-                                <td class="product-name">Ergonomik Ofis Koltuğu</td>
-                                <td>Ofis Malzemeleri</td>
+                                <td>
+                                    <div class="product-info">
+                                        <strong>Ergonomik Ofis Koltuğu</strong>
+                                        <span>PRD-102</span>
+                                    </div>
+                                </td>
+                                <td>Ofis</td>
                                 <td><strong>12</strong> Adet</td>
                                 <td><span class="badge badge-warning">Azalıyor</span></td>
-                                <td><a href="#" style="color: var(--primary);"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                                <td><a href="#" class="action-btn"><i class="fa-solid fa-pen"></i></a></td>
                             </tr>
                             <tr>
-                                <td style="color: var(--text-muted); font-weight: 500;">PRD-103</td>
-                                <td class="product-name">Lazer Yazıcı Toneri</td>
-                                <td>Elektronik</td>
+                                <td>
+                                    <div class="product-info">
+                                        <strong>Lazer Yazıcı Toneri</strong>
+                                        <span>PRD-103</span>
+                                    </div>
+                                </td>
+                                <td>Tüketim Malzemesi</td>
                                 <td><strong>2</strong> Adet</td>
-                                <td><span class="badge badge-danger">Kritik Seviye</span></td>
-                                <td><a href="#" style="color: var(--primary);"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                                <td><span class="badge badge-danger">Kritik</span></td>
+                                <td><a href="#" class="action-btn"><i class="fa-solid fa-pen"></i></a></td>
                             </tr>
                         </tbody>
                     </table>
